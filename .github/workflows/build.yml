@@ -1,27 +1,5 @@
+name: frr
 on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        arch: [ amd64, arm64v8 ]
-    steps:
-      - uses: actions/checkout@v3
-      - name: setup
-        run: |
-          ls -lah /proc/sys/fs/binfmt_misc
-          wget -q http://deb.debian.org/debian/pool/main/q/qemu/qemu-user-static_8.0.4+dfsg-3+b1_amd64.deb
-          sudo dpkg -i qemu-user-static_8.0.4+dfsg-3+b1_amd64.deb
-          sudo dd bs=1M if=/usr/lib/binfmt.d/qemu-aarch64.conf of=/proc/sys/fs/binfmt_misc/register
-          ls -lah /proc/sys/fs/binfmt_misc
-      - name: start build container
-        run: podman run --rm -d -v "$PWD:/mnt" --name build ghcr.io/gardenlinux/package-build:${{ matrix.arch }} tail -f /dev/null
-      - name: build libyang2
-        run: podman exec build build git+https://github.com/CESNET/libyang.git#v2.1.111 /mnt/libyang2
-      - name: install libyang2
-        run: podman exec build bash -c 'sudo dpkg -i libyang2*.deb'
-      - name: build frr
-        run: podman exec build build git+https://github.com/FRRouting/frr.git#frr-9.0.1 /mnt/frr
-      - name: stop build container
-        run: podman stop build
+  iproute2:
+    uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main

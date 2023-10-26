@@ -1,3 +1,4 @@
+source: git+https://github.com/FRRouting/frr.git#frr-9.0.1
 email: "contact@gardenlinux.io"
 name: "Garden Linux Builder"
 distribution: gardenlinux
