@@ -1,7 +1,7 @@
 name: frr
 on: push
 jobs:
-  iproute2:
+  frr:
     uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main
     with:
       dependencies: |
