@@ -3,3 +3,6 @@ on: push
 jobs:
   iproute2:
     uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main
+    with:
+      dependencies: |
+        gardenlinux/package-libyang2@libyang2_2.1.111-1gl0
