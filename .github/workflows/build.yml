@@ -1,8 +1,10 @@
 name: frr
 on: push
 jobs:
-  frr:
+  build_pkg:
     uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main
     with:
+      source: git+https://github.com/FRRouting/frr.git@frr-9.0.1
+      debian_source: native
       dependencies: |
         gardenlinux/package-libyang2@libyang2_2.1.111-1gl0
