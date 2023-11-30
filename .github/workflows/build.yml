@@ -2,12 +2,12 @@ name: frr
 on: push
 jobs:
   build_pkg:
-    uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main
+    uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@feature/29-create-changelog
     with:
       source: git+https://github.com/FRRouting/frr.git#master
       debian_source: native
       tag_suffix: frr-
-      tag_mangle: "rc|dev"
+      tag_mangel: "rc|dev"
         #      dependencies: |
         #gardenlinux/package-libyang2@libyang2_2.1.111-1gl0
 
