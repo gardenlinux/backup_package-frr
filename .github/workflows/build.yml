@@ -4,7 +4,10 @@ jobs:
   build_pkg:
     uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main
     with:
-      source: git+https://github.com/FRRouting/frr.git@frr-9.0.1
+      source: git+https://github.com/FRRouting/frr.git#master
       debian_source: native
-      dependencies: |
-        gardenlinux/package-libyang2@libyang2_2.1.111-1gl0
+      tag_suffix: frr-
+      tag_mangle: "rc|dev"
+        #      dependencies: |
+        #gardenlinux/package-libyang2@libyang2_2.1.111-1gl0
+
