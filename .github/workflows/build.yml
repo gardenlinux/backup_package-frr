@@ -2,7 +2,7 @@ name: frr
 on: push
 jobs:
   build_pkg:
-    uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@feature/29-create-changelog
+    uses: gardenlinux/package-build/.github/workflows/build_pkg.yml@main
     with:
       source: git+https://github.com/FRRouting/frr.git#master
       debian_source: native
