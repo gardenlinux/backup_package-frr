@@ -6,8 +6,5 @@ jobs:
     with:
       source: git+https://github.com/FRRouting/frr.git#master
       debian_source: native
-      tag_suffix: frr-
-      tag_mangel: "rc|dev"
-        #      dependencies: |
-        #gardenlinux/package-libyang2@libyang2_2.1.111-1gl0
-
+      git_filter: 'frr\-[0-9\.]*$'
+      git_tag_match: 'frr\-([0-9\.]*).*'
