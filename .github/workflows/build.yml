@@ -8,3 +8,5 @@ jobs:
       debian_source: native
       git_filter: 'frr\-[0-9\.]*$'
       git_tag_match: 'frr\-([0-9\.]*).*'
+      build_dependencies: |
+        gardenlinux/package-libyang2@latest
